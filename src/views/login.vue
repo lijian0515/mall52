@@ -33,13 +33,14 @@ export default {
      
    
    const res = await this.$http.post("login", this.fromdata)
-   console.log(res);
+  //  console.log(res);
    
    const { meta,data } = res.data;
           if (meta.status === 200) {
             const token = data.token
               sessionStorage.setItem('token',token)
-              this.$router.push({name: 'user'})
+              this.$router.push({name:'home'})
+               this.$message.succeed(meta.msg);
           } else {
             this.$message.error(meta.msg);
           }

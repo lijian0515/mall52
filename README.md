@@ -28,3 +28,23 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
       redirect:{name: 'Login'}
     }
 ```
+```html
+<!-- 二级路由
+  下拉菜单里有一属性  router 值为布尔  true开启路由检测  检测index 的值  默认false
+  在对应的index 下进行设置 路由的地址
+   
+ -->
+ <el-menu default-active="2" class="el-menu-vertical-demo" :unique-opened="true" :router="true">
+   <el-submenu index="1">
+                    <template slot="title">
+                        <i class="el-icon-location"></i>
+                        <span>用户管理</span>
+                    </template>
+                    <el-menu-item-group>
+                        <el-menu-item index="/user">
+                            <i class="el-icon-menu"></i>
+                            用户列表</el-menu-item>
+
+                    </el-menu-item-group>
+                </el-submenu>
+```
