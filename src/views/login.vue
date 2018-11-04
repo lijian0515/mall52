@@ -20,8 +20,8 @@ export default {
   data() {
     return {
       fromdata: {
-        username: "",
-        password: ""
+        username: "admin",
+        password: "123456"
       }
     };
   },
@@ -40,7 +40,7 @@ export default {
             const token = data.token
               sessionStorage.setItem('token',token)
               this.$router.push({name:'home'})
-               this.$message.succeed(meta.msg);
+              this.$message.success(meta.msg);
           } else {
             this.$message.error(meta.msg);
           }

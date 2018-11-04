@@ -95,13 +95,18 @@
 
 <script>
 export default {
-
+    deforeCreate(){
+          const token=sessionStorage.getTiem('token')
+          if (token) {
+               this.$router.push({name: 'Login'})
+             this.$message.warning('请登录')
+          }
+    },
     methods: {
         loginout() {
-            sessionStorage.clear('token', token)
-            this.$router.push({
-                name: 'Login'
-            })
+            sessionStorage.clear('token')
+            this.$router.push({name: 'Login'})
+             this.$message.warning('退出')
         },
     }
 };

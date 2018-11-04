@@ -1,3 +1,5 @@
+
+// 设置  axios 的地址 
 import axios from 'axios'
 // 先定义一个对象
 const HttpTool = {}
