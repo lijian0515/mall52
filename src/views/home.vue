@@ -34,10 +34,10 @@
                         <span>权限管理</span>
                     </template>
                     <el-menu-item-group>
-                        <el-menu-item index="2-1">
+                        <el-menu-item index="/roleList">
                             <i class="el-icon-menu"></i>
                             角色列表</el-menu-item>
-                        <el-menu-item index="2-2">
+                        <el-menu-item index="/showPower">
                             <i class="el-icon-menu"></i>
                             权限列表</el-menu-item>
                     </el-menu-item-group>
@@ -95,51 +95,55 @@
 
 <script>
 export default {
-    deforeCreate(){
-          const token=sessionStorage.getTiem('token')
-          if (token) {
-               this.$router.push({name: 'Login'})
-             this.$message.warning('请登录')
-          }
-    },
-    methods: {
-        loginout() {
-            sessionStorage.clear('token')
-            this.$router.push({name: 'Login'})
-             this.$message.warning('退出')
-        },
+  deforeCreate() {
+    const token = sessionStorage.getTiem("token");
+    if (token) {
+      this.$router.push({ name: "Login" });
+      this.$message.warning("请登录");
     }
+  },
+  async created() {
+    const res = await this.$http.get("menus");
+    console.log(res);
+  },
+  methods: {
+    loginout() {
+      sessionStorage.clear("token");
+      this.$router.push({ name: "Login" });
+      this.$message.warning("退出");
+    }
+  }
 };
 </script>
 
 <style>
 /* home.vue */
 .container {
-    height: 100%;
+  height: 100%;
 }
 
 .header {
-    background-color: #b3c0d1;
+  background-color: #b3c0d1;
 }
 
 .aside {
-    background-color: #d3dce6;
+  background-color: #d3dce6;
 }
 
 .main {
-    background-color: #e9eef3;
-    height: 100%;
+  background-color: #e9eef3;
+  height: 100%;
 }
 
 /* 头部样式 */
 .header .middle {
-    line-height: 100%;
-    color: #fff;
-    text-align: center;
+  line-height: 100%;
+  color: #fff;
+  text-align: center;
 }
 
 .header .loginout {
-    line-height: 60px;
-    text-decoration: none;
+  line-height: 60px;
+  text-decoration: none;
 }
 </style>

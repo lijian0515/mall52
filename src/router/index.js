@@ -3,6 +3,9 @@ import Router from 'vue-router'
 import Login from '@/views/login.vue'
 import Home from '@/views/home.vue'
 import User from '@/views/user.vue'
+import showPower from '@/views/Jurisdictionlist.vue'
+import roleList from '@/views/roleList.vue'
+
 
 Vue.use(Router)
 
@@ -11,7 +14,7 @@ export default new Router({
     {
       path: '/',
       name: 'login',
-      redirect:{name: 'Login'}
+      redirect: { name: 'Login' }
     },
     {
       path: '/Login',
@@ -22,10 +25,21 @@ export default new Router({
       path: '/home',
       name: 'home',
       component: Home,
-      children:[{
-        path:'/user',
-        component:User,
-      }]
+      children: [{
+        path: '/user',
+        component: User,
+      },
+      {
+        path: '/showPower',
+        name:'showPower',
+        component: showPower,
+      },
+      {
+        path: '/roleList',
+        name:'roleList',
+        component: roleList,
+      },
+      ]
     },
   ]
 })

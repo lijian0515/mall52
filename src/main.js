@@ -6,6 +6,7 @@ import moment from 'moment'
 import router from './router/index'
 import element from 'element-ui'
 import '../node_modules/element-ui/lib/theme-chalk/index.css'
+import myBread from '@/components/myBread.vue'
 import axios from '@/plugins/http'
 Vue.use(element)
 Vue.use(axios)
@@ -13,9 +14,11 @@ import '@/assets/css/index.css'
 Vue.config.productionTip = false
 // 时间过滤器
 Vue.filter('fmtDate',(value,fmtString) => {
-//  return moment(value).formant(fmtDate)
  return moment(value).format(fmtString)
 })
+// 自定义面包屑
+Vue.component( myBread.name,myBread)
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
